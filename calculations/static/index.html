@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mathematical Calculation</title>
     <style>
         * {
             box-sizing: border-box;
@@ -28,18 +28,27 @@
             display: block;
             width: 100%;
             background-color: rgb(191, 143, 245);
-            margin-top: 150px;
+            margin-top: 50px;
+            min-height: 500px;
+        }
+        .content1 {
+          display: block;
+            width: 100%;
+            background-color: rgb(191, 143, 245);
+            margin-top: 30px;
             min-height: 500px;
         }
         h1{
             text-align: center;
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             padding-top: 20px;
+            font-size: 50px;
         }
         .formelement{
             text-align: center;
             padding-bottom: 15px;
-            font-size: 20px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 30px;
         }
 
     </style>
@@ -48,47 +57,25 @@
     <div class="container">
         <div class="content">
             <div class="box1">
-                <h1>Volume Of Cylinder</h1>
-                <form>
-                   <div class="formelement">
-                        <label for="aedit">Radius:</label>
-                        <input type="text" id="aedit" value="0"/>
-                    </div> 
-                    <div class="formelement">
-                        <label for="bedit">Height:</label>
-                        <input type="text" id="bedit" value="0"/>
-                    </div>
-                    <div class="formelement">
-                         <input type="button" value="CALCULATE" id="addbutton"/>
-                    </div>
-                    <div class="formelement">
-                        <label for="cedit">Volume:</label>
-                        <input type="text" id="cedit" value="0"/>
-                    </div>
-                </form>
-            </div>
-           
-        </div>
-    </div>
-    <div class="container">
-        <div class="content">
-            <div class="box1">
                 <h1>Volume Of Cone</h1>
                 <form>
                    <div class="formelement">
-                        <label for="aedit">Radius:</label>
+                        <label for="aedit">Radius =</label>
                         <input type="text" id="aedit" value="0"/>
+                        
                     </div> 
                     <div class="formelement">
-                        <label for="bedit">Height:</label>
+                        <label for="bedit">Height =</label>
                         <input type="text" id="bedit" value="0"/>
+                        
                     </div>
                     <div class="formelement">
-                         <input type="button" value="CALCULATE" id="addbutton"/>
+                         <input type="button" value="CALCULATE VOLUME" id="addbutton"/>
                     </div>
                     <div class="formelement">
-                        <label for="cedit">Volume:</label>
+                        <label for="cedit">Volume =</label>
                         <input type="text" id="cedit" value="0"/>
+                        
                     </div>
                 </form>
             </div>
@@ -105,13 +92,59 @@
         atext=document.querySelector("#aedit");
         btext=document.querySelector("#bedit");
         ctext=document.querySelector("#cedit");
-
+     
         aval=parseFloat(atext.value);
         bval=parseFloat(btext.value);
         pi=3.14;
-        cval=pi*aval*aval*bval;
+        cval=pi*aval*aval*bval/3;
         ctext.value=" "+cval;
+    
     });
+</script>   
+    <div class="container">
+        <div class="content1">
+            <div class="box1">
+                <h1>Area Of a Triangle</h1>
+                <form>
+                   <div class="formelement">
+                        <label for="dedit">Base =</label>
+                        <input type="text" id="dedit" value="0"/>
+                    </div> 
+                    <div class="formelement">
+                        <label for="eedit">Height =</label>
+                        <input type="text" id="eedit" value="0"/>
+                    </div>
+                    <div class="formelement">
+                         <input type="button" value="CALCULATE AREA" id="addbutton"/>
+                    </div>
+                    <div class="formelement">
+                        <label for="fedit">Area =</label>
+                        <input type="text" id="fedit" value="0"/>
+                    </div>
+                </form>
+            </div>
+           
+        </div>
+    </div>
+
+<script type="text/javascript">
+  var button;
+  button=document.querySelector("#addbutton");
+  button.addEventListener("click",function(){
+      var dtext,etext,ftext;
+      var dval,eval,fval;
+ 
+      dtext=document.querySelector("#dedit");
+      etext=document.querySelector("#eedit");
+      ftext=document.querySelector("#fedit");
+
+      dval=parseFloat(dtext.value);
+      eval=parseFloat(etext.value);
+      fval=1/2*eval*dval;
+      ftext.value=" "+fval;
+  });
 </script>    
+
+
 </body>
 </html>
