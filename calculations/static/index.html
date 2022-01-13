@@ -61,12 +61,12 @@
                 <form>
                    <div class="formelement">
                         <label for="aedit">Radius =</label>
-                        <input type="text" id="aedit" value="0"/>
+                        <input type="text" id="aedit" value="0"/>Meters
                         
                     </div> 
                     <div class="formelement">
                         <label for="bedit">Height =</label>
-                        <input type="text" id="bedit" value="0"/>
+                        <input type="text" id="bedit" value="0"/>Meters
                         
                     </div>
                     <div class="formelement">
@@ -74,7 +74,7 @@
                     </div>
                     <div class="formelement">
                         <label for="cedit">Volume =</label>
-                        <input type="text" id="cedit" value="0"/>
+                        <input type="text" id="cedit" value="0" readonly />Meter<sup>3</sup>
                         
                     </div>
                 </form>
@@ -92,10 +92,25 @@
         atext=document.querySelector("#aedit");
         btext=document.querySelector("#bedit");
         ctext=document.querySelector("#cedit");
+
+        rexp=new RegExp("^[1-9]+[0-9]*$");
      
-        aval=parseFloat(atext.value);
-        bval=parseFloat(btext.value);
+        aval=atext.value;
+        r1=aval.match(rexp);
+        bval=btext.value;
+        r2=bval.match(rexp)
         pi=3.14;
+        
+
+        if(r1==null)
+        {
+            alert("Please Enter Positive Integers Only for Radius");
+        }
+        if(r2==null)
+        {
+            alert("Please Enter Positive Integers Only for Height");
+        }
+        
         cval=pi*aval*aval*bval/3;
         ctext.value=" "+cval;
     
@@ -108,18 +123,18 @@
                 <form>
                    <div class="formelement">
                         <label for="dedit">Base =</label>
-                        <input type="text" id="dedit" value="0"/>
+                        <input type="text" id="dedit" value="0"/>Meters
                     </div> 
                     <div class="formelement">
                         <label for="eedit">Height =</label>
-                        <input type="text" id="eedit" value="0"/>
+                        <input type="text" id="eedit" value="0"/>Meters
                     </div>
                     <div class="formelement">
                          <input type="button" value="CALCULATE AREA" id="addbuttons"/>
                     </div>
                     <div class="formelement">
                         <label for="fedit">Area =</label>
-                        <input type="text" id="fedit" value="0"/>
+                        <input type="text" id="fedit" value="0" readonly />Meter<sup>3</sup>
                     </div>
                 </form>
             </div>
@@ -129,7 +144,7 @@
 
 <script>
   var button;
-  button=document.querySelector("#addbutton");
+  button=document.querySelector("#addbuttons");
   button.addEventListener("click",function(){
       var dtext,etext,ftext;
       var dval,eval,fval;
@@ -138,8 +153,21 @@
       etext=document.querySelector("#eedit");
       ftext=document.querySelector("#fedit");
 
-      dval=parseFloat(dtext.value);
-      eval=parseFloat(etext.value);
+      rexp=new RegExp("^[1-9]+[0-9]*$");
+
+      dval=dtext.value;
+      r3=dval.match(rexp);
+      eval=etext.value;
+      r4=eval.match(rexp)
+
+      if(r3==null)
+      {
+         alert("Please Enter Positive Integers Only for Base");
+      }
+      if(r4==null)
+      {
+         alert("Please Enter Positive Integers Only for Height");
+      }
       fval=1/2*eval*dval;
       ftext.value=" "+fval;
   });
